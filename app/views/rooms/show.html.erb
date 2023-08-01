@@ -1,0 +1,38 @@
+<h3>施設詳細</h3>
+
+<div>
+  <ul>
+    <li><%= link_to "戻る", :back %></li>
+    <li><%= link_to "編集する", edit_room_path(@room) %></li>
+  </ul>
+</div>
+
+<table>
+  <tr>
+    <th>施設画像</th>
+    <td>
+    <% if @room.image? %>
+      <%= image_tag @room.image.url, class: "hotel_image", size: "200x150" %>
+    <% else %>
+      <%= image_tag ("hotel_img.png"), size: "200x150" %>
+    <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>施設名</th>
+    <td><%= @room.room_name %></td>
+  </tr>
+  <tr>
+    <th>施設詳細</th>
+    <td><%= @room.body %></td>
+  </tr>
+  <tr>
+    <th>料金</th>
+    <td><%= @room.price %></td>
+  </tr>
+  <tr>
+    <th>住所</th>
+    <td><%= @room.address %></td>
+  </tr>
+</table>
+

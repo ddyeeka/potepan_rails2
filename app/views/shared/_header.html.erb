@@ -17,7 +17,7 @@
 
           <ul class="dropdown-menu DropdownMenu" aria-labelledby="dropdown-button">
             <li class="DropdownMenu__item">
-              <a href="/rooms/new">施設の新規登録</a>
+              <%= link_to "施設の新規登録", new_room_path %>
             </li>
 
             <hr class="DropdownMenu__hr">
@@ -27,7 +27,7 @@
             </li>
 
             <li class="DropdownMenu__item DropdownMenu__item--middle">
-              <a href="/rooms/own">登録済み一覧</a>
+            <%= link_to "登録済み一覧", rooms_path %>
             </li>
 
             <li class="DropdownMenu__item">
