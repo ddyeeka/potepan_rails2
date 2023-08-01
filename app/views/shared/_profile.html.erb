@@ -1,0 +1,15 @@
+<section class="container UserSection">
+  <h2>設定</h2>
+
+  <div class="UserContainer">
+    <ul class="SideNavigation">
+      <li class="SideNavigation__item active">
+        <%= link_to "アカウント", users_account_path(current_user) %><br>
+      </li>
+
+      <li class="SideNavigation__item ">
+        <%= link_to "プロフィール", user_path(current_user) %>
+      </li>
+    </ul>
+  </div>
+</section>
