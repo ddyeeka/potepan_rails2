@@ -1,23 +1,24 @@
-
+<div class="container">
 <%= render "shared/profile" %>
 
-<div class="AccountInformation__header">
-  <h3>アカウント</h3>
-  <li class="AccountInformation__link" href="/users/edit">
-    <%= link_to "編集", edit_user_registration_path(current_user) %><br>
-  </li>      
-</div>
-
-<div class="AccountInformation__input-group">
-  <label class="AccountInformation__label" for="email">メールアドレス</label>
-  <p class="AccountInformation__value">
-    <%= current_user.email %>
-  </p>
-</div>
-
-<div class="AccountInformation__input-group">
-  <label class="AccountInformation__label" for="password">パスワード</label>
-  <p class="AccountInformation__value">
-    *********
-  </p>
+  <div class="AccountInformation__header">
+    <h3>アカウント</h3>
+    <li class="AccountInformation__link" href="/users/edit">
+      <%= link_to "編集", edit_user_registration_path(current_user) %><br>
+    </li>      
+  </div>
+  
+  <div class="AccountInformation__input-group">
+    <label class="AccountInformation__label" for="email">メールアドレス</label>
+    <p class="AccountInformation__value">
+      <%= current_user.email %>
+    </p>
+  </div>
+  
+  <div class="AccountInformation__input-group">
+    <label class="AccountInformation__label" for="password">パスワード</label>
+    <p class="AccountInformation__value">
+      *********
+    </p>
+  </div>
 </div>

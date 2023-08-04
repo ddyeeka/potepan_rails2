@@ -5,6 +5,7 @@ class Room < ApplicationRecord
   has_many :reservations, dependent: :destroy
 
   validates :room_name, presence: true
+  validates :body, presence: true
   validates :address, presence: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
 

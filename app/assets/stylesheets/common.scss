@@ -1,0 +1,33 @@
+ul,
+li {
+  list-style: none;
+}
+
+// ヘッダー
+.Navbar {
+  background-color: darkslategray;
+  height: 100px;
+}
+
+.navbar-nav .NavItem {
+  background-color: #fff;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  margin-left: 30px;
+}
+
+.Navbar__logo {
+  width: 300px;
+}
+
+// フッター
+.Footer {
+  background-color: darkslategray;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
