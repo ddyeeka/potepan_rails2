@@ -1,0 +1,36 @@
+<div class="search-field">
+  <%= form_tag room_result_path, method: :get do %>
+    <%= label_tag :area, "エリア検索" %>
+    <%= text_field_tag :area, params[:area], placeholder: "エリア名を入力" %>
+    <%= label_tag :query, "フリーワード検索" %>
+    <%= text_field_tag :query, params[:query], placeholder: "キーワード名を入力" %>
+    <%= submit_tag "検索" %>
+  <% end %>
+</div>
+
+<div class="search-results">
+  <% if @rooms.present? %>
+    <h3>検索結果：<%= @count %>件</h3>
+    <div class="card" style="width: 18rem;" >
+      <% @rooms.each do |room| %>
+        <div class="room_image">
+        <% if room.image? %>
+          <%= image_tag room.image.url, class: "hotel_image", size: "200x150" %>
+        <% else %>
+          <%= image_tag ("hotel_img.png"), size: "200x150" %>
+        <% end %>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title"><%= room.room_name %></h2>
+          <p class="card-text"><%= room.body %></p>
+          <p class="card-text"><%= room.address %></p>
+          <p class="card-text">料金:¥ <%= room.price %>~</p>
+          <%= link_to "詳細ページへ", {controller: 'rooms', action: 'show', id: room.id} %>
+        </div>
+      <% end %>
+    </div> 
+  <% else %>
+    <h3>検索結果：０件</h3>
+    <%= link_to "戻る", :back %>
+  <% end %>
+</div>

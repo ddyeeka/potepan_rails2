@@ -6,12 +6,13 @@
       旅をしよう
     </h2>
 
-    <div class="FirstViewSearch">
-      <form action="https://rails-02-sample.herokuapp.com/rooms" accept-charset="UTF-8" method="get">
-        <input class="form-control FirstViewSearch__input" placeholder="エリア名を入力" type="text" name="area" id="area" />
-        <input type="submit" name="commit" value="検索" class="btn FirstViewSearch__button" data-disable-with="検索" />
-      </form>    
-    </div>
+    <%= form_tag room_result_path, method: :get do %>
+      <%= label_tag :area, "エリア検索" %>
+      <%= text_field_tag :area, params[:area], placeholder: "エリア名を入力" %>
+      <%= label_tag :query, "フリーワード検索" %>
+      <%= text_field_tag :query, params[:query], placeholder: "キーワード名を入力" %>
+      <%= submit_tag "検索" %>
+    <% end %>
   </section>
 </div>
 
@@ -22,46 +23,30 @@
     </h2>
 
     <div class="RecommendAreas">
-      <a class="RecommendArea RecommendArea--tokyo" href="https://rails-02-sample.herokuapp.com/rooms?area=%E6%9D%B1%E4%BA%AC">
-        <span class="RecommendArea__name RecommendArea__name--ja">東京</span>
-
-        <span class="RecommendArea__name RecommendArea__name--en">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-          </svg>
-          Tokyo
-        </span>
-      </a>
-      <a class="RecommendArea RecommendArea--osaka" href="https://rails-02-sample.herokuapp.com/rooms?area=%E5%A4%A7%E9%98%AA">
-        <span class="RecommendArea__name RecommendArea__name--ja">大阪</span>
-
-        <span class="RecommendArea__name RecommendArea__name--en">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-          </svg>
-          Osaka
-        </span>
-      </a>
-      <a class="RecommendArea RecommendArea--kyoto" href="https://rails-02-sample.herokuapp.com/rooms?area=%E4%BA%AC%E9%83%BD">
-        <span class="RecommendArea__name RecommendArea__name--ja">京都</span>
-
-        <span class="RecommendArea__name RecommendArea__name--en">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-          </svg>
-          Kyoto
-        </span>
-      </a>
-      <a class="RecommendArea RecommendArea--sapporo" href="https://rails-02-sample.herokuapp.com/rooms?area=%E6%9C%AD%E5%B9%8C">
-        <span class="RecommendArea__name RecommendArea__name--ja">札幌</span>
-
-        <span class="RecommendArea__name RecommendArea__name--en">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-          </svg>
-          Sapopro
-        </span>
-      </a>    
+      <div class="panel-item">
+        <%= link_to "http://localhost:3000/room/result?area=%E6%9D%B1%E4%BA%AC&query=&commit=%E6%A4%9C%E7%B4%A2"  do %>
+        <%= image_tag 'tokyo.jpg' %> 
+        <h4>東京</h4>
+        <% end %>
+      </div>
+      <div class="panel-item">
+        <%= link_to "http://localhost:3000/room/result?area=%E6%9D%B1%E4%BA%AC&query=&commit=%E6%A4%9C%E7%B4%A2"  do %>
+        <%= image_tag 'osaka.jpg' %> 
+        <h4>大阪</h4>
+        <% end %>
+      </div>
+      <div class="panel-item">
+        <%= link_to "http://localhost:3000/room/result?area=%E6%9D%B1%E4%BA%AC&query=&commit=%E6%A4%9C%E7%B4%A2"  do %>
+        <%= image_tag 'kyoto.jpg' %> 
+        <h4>京都</h4>
+        <% end %>
+      </div>
+      <div class="panel-item">
+        <%= link_to "http://localhost:3000/room/result?area=%E6%9D%B1%E4%BA%AC&query=&commit=%E6%A4%9C%E7%B4%A2"  do %>
+        <%= image_tag 'sapporo.jpg' %> 
+        <h4>札幌</h4>
+        <% end %>
+      </div>
     </div>
   </section>
 </div>

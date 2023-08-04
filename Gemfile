@@ -37,6 +37,7 @@ group :development, :test do
   gem 'bootstrap', '~> 4.3.1'
   gem 'jquery-rails'
   gem 'devise-i18n'
+  gem 'pry-rails'
 
 end
 

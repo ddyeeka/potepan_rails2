@@ -1,5 +1,7 @@
 <h3>施設詳細</h3>
 
+<%= render "shared/error", obj: @reservation %>
+
 <div>
   <ul>
     <li><%= link_to "戻る", :back %></li>
@@ -7,6 +9,7 @@
   </ul>
 </div>
 
+<%= form_with model: @reservation, method: :get, url: new_reservation_path do |f| %>
 <table>
   <tr>
     <th>施設画像</th>
@@ -36,3 +39,21 @@
   </tr>
 </table>
 
+<%= f.hidden_field :room_id, value: @room.id %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :price, value: @room.price %>
+<%= f.hidden_field :room_name, value: @room.room_name %>
+<%= f.hidden_field :image, value: @room.image%>
+<%= f.hidden_field :body, value: @room.body %>
+
+<label>チェックイン</label>
+  <%= f.date_field :start_date, required: true%>
+
+<label>チェックアウト</label>
+  <%= f.date_field :end_date, required: true%>
+
+<label>人数</label>
+  <%= f.text_field :people, required: true%>
+
+<%= f.submit "予約する"%>
+<% end %>
