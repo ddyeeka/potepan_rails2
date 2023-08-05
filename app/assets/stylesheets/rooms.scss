@@ -1,0 +1,39 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.search-field {
+  margin-bottom: 50px;
+}
+
+.room-container {
+  display: flex;
+}
+
+.room-box {
+  width: 300px;
+  height: 500px;
+}
+
+.container table {
+  margin: 40px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.container form {
+  margin-bottom: 40px;
+}
+
+.col {
+  margin: 20px 0;
+  width: 500px;
+}
+
+.col label {
+  width: 20%;
+}
+
+.col input {
+  width: 300px;
+}

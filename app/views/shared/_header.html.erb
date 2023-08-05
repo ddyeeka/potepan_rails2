@@ -1,0 +1,58 @@
+<header>
+  <nav class="navbar Navbar">
+    <div class="container-fluid">
+      <a href="/"><%= image_tag 'logo_img.png', class: 'Navbar__logo', alt: 'サイトロゴ' %></a>
+
+
+      <% if user_signed_in? %>
+        <div class="btn-group">
+          <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <% if current_user.avatar? %>
+              <%= image_tag current_user.avatar.url, class: "icon_image", size: "40x40" %>
+            <% else %>
+              <%= image_tag ("usericon_img.png"), size: "40x40" %>
+            <% end %>
+            <%= current_user.name %>
+          </button>
+
+          <ul class="dropdown-menu DropdownMenu" aria-labelledby="dropdown-button">
+            <li class="DropdownMenu__item">
+              <%= link_to "施設の新規登録", new_room_path %>
+            </li>
+
+            <hr class="DropdownMenu__hr">
+
+            <li class="DropdownMenu__item">
+              <a href="/reservations">予約済み一覧</a>
+            </li>
+
+            <li class="DropdownMenu__item DropdownMenu__item--middle">
+            <%= link_to "登録済み一覧", rooms_path %>
+            </li>
+
+            <li class="DropdownMenu__item">
+              <%= link_to "アカウント設定", user_path(current_user) %>
+            </li>
+
+            <hr class="DropdownMenu__hr">
+
+            <li class="DropdownMenu__item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            </li>
+          </ul>
+        </div>
+
+      <% else %>
+        <ul class="navbar-nav flex-row align-items-center">
+          <li class="nav-item NavItem">
+            <%= link_to "ログイン", new_user_session_path, class: 'fw-bold NavItem__link NavItem__link--login' %>
+          </li>
+
+          <li class="nav-item NavItem">
+            <%= link_to "新規登録", new_user_registration_path, class: 'fw-bold NavItem__link NavItem__link--login' %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </nav>
+</header>

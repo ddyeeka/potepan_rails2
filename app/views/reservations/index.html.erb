@@ -1,0 +1,47 @@
+<section class="container OwnRoomsContainer">
+  <h2>予約済み一覧</h2>
+
+  <div class="table-responsive">
+    <table class="table align-middle OwnRoomsTable">
+      <thead>
+        <tr>
+          <th>画像</th>
+          <th>施設名</th>
+          <th>紹介文</th>
+          <th>合計料金</th>
+          <th>チェックイン</th>
+          <th>チェックアウト</th>
+          <th>予約確定日時</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <% @reservations.each do |reservation| %>
+        <% if reservation.user_id == current_user.id %>
+        <tr>
+          <td>
+          <% if reservation.room.image? %>
+            <%= image_tag reservation.room.image.url, class: "hotel_image", size: "120x70" %>
+          <% else %>
+            <%= image_tag ("hotel_img.png"), size: "120x70" %>
+          <% end %>
+          </td>
+          <td>
+            <%= link_to reservation.room do %>
+              <%= reservation.room.room_name %>
+            <% end %>
+          </td>
+          <td><%= reservation.room.body %></td>
+          <td class="text-nowrap">¥<%= reservation.total_price %></td>
+          <td class="text-nowrap"><%= reservation&.start_date&.strftime("%Y/%m/%d") %></td>
+          <td class="text-nowrap"><%= reservation&.end_date&.strftime("%Y/%m/%d") %></td>
+          <td class="text-nowrap"><%= reservation&.updated_at&.strftime("%Y/%m/%d %H:%M") %></td>
+        </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</section>

@@ -1,0 +1,52 @@
+<div class="FirstView">
+  <section class="container">
+    <h2 class="FirstView__title">
+      Potepan Shareで<br>
+      まだ体験したことのない<br>
+      旅をしよう
+    </h2>
+
+    <%= form_tag room_result_path, method: :get do %>
+      <%= label_tag :area, "エリア検索" %>
+      <%= text_field_tag :area, params[:area], placeholder: "エリア名を入力" %>
+      <%= label_tag :query, "フリーワード検索" %>
+      <%= text_field_tag :query, params[:query], placeholder: "キーワード名を入力" %>
+      <%= submit_tag "検索" %>
+    <% end %>
+  </section>
+</div>
+
+<div class="container">
+  <section class="RecommendAreaSection">
+    <h2 class="RecommendAreaSection__title">
+      おすすめのエリア
+    </h2>
+
+    <div class="RecommendAreas">
+      <div class="panel-item">
+        <%= link_to "http://localhost:3000/room/result?area=%E6%9D%B1%E4%BA%AC&query=&commit=%E6%A4%9C%E7%B4%A2"  do %>
+        <%= image_tag 'tokyo.jpg' %> 
+        <h4>東京</h4>
+        <% end %>
+      </div>
+      <div class="panel-item">
+        <%= link_to "http://localhost:3000/room/result?area=%E5%A4%A7%E9%98%AA&query=&commit=%E6%A4%9C%E7%B4%A2"  do %>
+        <%= image_tag 'osaka.jpg' %> 
+        <h4>大阪</h4>
+        <% end %>
+      </div>
+      <div class="panel-item">
+        <%= link_to "http://localhost:3000/room/result?area=%E4%BA%AC%E9%83%BD&query=&commit=%E6%A4%9C%E7%B4%A2"  do %>
+        <%= image_tag 'kyoto.jpg' %> 
+        <h4>京都</h4>
+        <% end %>
+      </div>
+      <div class="panel-item">
+        <%= link_to "http://localhost:3000/room/result?area=%E6%9C%AD%E5%B9%8C&query=&commit=%E6%A4%9C%E7%B4%A2"  do %>
+        <%= image_tag 'sapporo.jpg' %> 
+        <h4>札幌</h4>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</div>
